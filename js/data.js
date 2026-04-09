@@ -2,9 +2,9 @@
   const data = {};
 
   data.categoriesUrl =
-    "https://davids-restaurant.herokuapp.com/categories.json";
+    "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
   data.menuItemsUrl =
-    "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
+    "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 
   global.$data = data;
 })(window);
