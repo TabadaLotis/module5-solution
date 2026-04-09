@@ -1,12 +1,11 @@
 (function (global) {
   const data = {};
 
-  const corsProxy = "https://cors-anywhere.herokuapp.com/";
+  // Use this working API for categories and menu items
+  data.categoriesUrl =
+    "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
+  data.menuItemsUrl =
+    "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 
-  // Original API URLs (keeping them as is)
-  data.categoriesUrl = "https://davids-restaurant.herokuapp.com/categories.json";
-  data.menuItemsUrl = "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
-
-  // Prepending the CORS Proxy to the API URLs
   global.$data = data;
 })(window);
