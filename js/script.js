@@ -6,25 +6,31 @@
     return categories[randomIndex].short_name;
   }
 
-  $dc.loadMenuCategories = function () {
+  function chooseRandomCategory() {
+    if (allCategories.length === 0) return;
+    const randomCat = getRandomCategoryShortName(allCategories);
+    $dc.loadMenuItems(randomCat);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load categories once and store them
     $ajaxUtils.sendGetRequest(
       $data.categoriesUrl,
       function (categories) {
         allCategories = categories;
-        $dc.loadHome(); // load home with categories stored
       },
       true
     );
-  };
 
-  document.addEventListener("click", function (event) {
-    if (event.target.id === "specials-tile") {
-      if (allCategories.length === 0) return;
-      const randomCat = getRandomCategoryShortName(allCategories);
-      $dc.loadMenuItems(randomCat);
-    }
+    // Load home page
+    $dc.loadHome();
   });
 
-  // Load home on page load
-  document.addEventListener("DOMContentLoaded", $dc.loadMenuCategories);
+  // Handle Specials click
+  document.addEventListener("click", function (event) {
+    if (event.target.id === "specials-tile") {
+      event.preventDefault();
+      chooseRandomCategory();
+    }
+  });
 })();
