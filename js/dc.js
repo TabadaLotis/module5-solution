@@ -29,23 +29,24 @@
 
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
-    $ajaxUtils.sendGetRequest($data.menuItemsUrl + categoryShort,
+    // Fixed the API endpoint here to add ".json" at the end for menu items
+    $ajaxUtils.sendGetRequest($data.menuItemsUrl + categoryShort + ".json",
       buildAndShowMenuItemsHTML,
       true);
   };
 
   function buildAndShowCategoriesHTML(categories) {
     let finalHtml = "<h2>Categories</h2><ul>";
-    for (let i = 0; i < categories.length; i++) {
-      finalHtml += "<li>" + categories[i].name + "</li>";
-    }
+    categories.forEach(function (category) {
+      finalHtml += "<li>" + category.name + "</li>";
+    });
     finalHtml += "</ul>";
     insertHtml("#main-content", finalHtml);
   }
 
   function buildAndShowMenuItemsHTML(menuItems) {
     let finalHtml = "<h2>Items</h2><ul>";
-    menuItems.menu_items.forEach(function (item) {
+    menuItems.forEach(function (item) {
       finalHtml += "<li>" + item.name + "</li>";
     });
     finalHtml += "</ul>";
