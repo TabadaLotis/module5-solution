@@ -29,7 +29,7 @@
 
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
-    // Fixed the API endpoint here to add ".json" at the end for menu items
+    // Fix for correctly adding ".json" at the end to fetch menu items
     $ajaxUtils.sendGetRequest($data.menuItemsUrl + categoryShort + ".json",
       buildAndShowMenuItemsHTML,
       true);
