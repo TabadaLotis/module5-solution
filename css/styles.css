@@ -1,0 +1,19 @@
+/* Basic styling for restaurant tiles */
+.tile {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+  padding: 30px;
+  margin: 10px;
+  background: #fafafa;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+/* Example layout */
+#home-tiles {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
