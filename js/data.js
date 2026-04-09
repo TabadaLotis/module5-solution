@@ -1,10 +1,8 @@
 (function (global) {
   const data = {};
 
-  data.categoriesUrl =
-    "https://coursera-jhu-default-rtdb.firebaseio.com/categories.json";
-  data.menuItemsUrl =
-    "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
+  data.categoriesUrl = "https://fake-restaurant-api.herokuapp.com/categories";
+  data.menuItemsUrl = "https://fake-restaurant-api.herokuapp.com/menu-items?category=";
 
   global.$data = data;
 })(window);
