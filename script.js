@@ -4,7 +4,6 @@ function getRandomCategoryShortName(categories) {
   const randomIndex = Math.floor(Math.random() * categories.length);
   return categories[randomIndex].short_name;
 }
-
 $dc.loadMenuCategories = function () {
   $ajaxUtils.sendGetRequest(
     "https://davids-restaurant.herokuapp.com/categories.json",
